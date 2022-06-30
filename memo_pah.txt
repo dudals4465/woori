@@ -1,0 +1,10 @@
+[2022-06-29]
+1. 회원가입, id, pw 찾기
+/views/service/certifyapply.php
+/views/service/certifyconfirm.php
+/views/service/certifyrequest.php
+/views/service/message.php
+/views/home/login.php
+/controllers/service.php
+/styles/login.css
+/styles/main.css

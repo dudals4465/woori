@@ -1,0 +1,982 @@
+@charset "utf-8";
+/* 견적 공통 */
+
+.estmUnit input.rateS { width: 40px; text-align: center; }
+.estmUnit input.rateL { width: 60px; text-align: center; }
+.estmUnit input.priceS { width: 70px; text-align: right; margin-right: -5px; }
+.estmUnit input.priceL { width: 100px; text-align: right; margin-right: -5px; }
+.estmUnit input.cnt { width: 20px; text-align: center; }
+/* 견적 레이아웃 */
+
+.estmBox {}
+.estmBox .openDressup { cursor: pointer; }
+/*
+.estmMain { margin: 0 auto; max-width: 980px }
+.estmDocu { margin: 0 auto; max-width: 980px }
+*/
+.estmBox .estmDocu, .estmBox .btnOpenSlide { display: none; }
+.estmBox.open .estmDocu, .wrapper.use .estmBox .btnOpenSlide { display: block; }
+.wrapper.use .estmBox.open .btnOpenSlide { display: none; }
+.wrapper.use .estmBox.open .estmDesc { display: none; }
+.estmMain:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;} 
+
+.estmBody[estmLen='1'] .btnEstmStar { display: none; }
+.estmBody .estmUnit[fincLen='1'] .btnFincDel { display: none; }
+.estmUnit .fincCell .btnFincCopy { display: none; }
+.estmUnit .fincBox .fincCell:last-child .btnFincCopy { display: inline-block; }
+.estmUnit[fincLen='3'] .fincBox .fincCell:last-child .btnFincCopy { display: none; }
+.estmBody .estmUnit[fincLen='1'] .btnLoanDel, .estmBody .estmUnit[fincLen='2'] .btnLoanDel, .estmBody .estmUnit[fincLen='3'] .btnLoanDel { display: none; }
+.estmUnit .fincCell .btnLoanCopy { display: none; }
+.estmUnit .fincBox .fincCell:last-child .btnLoanCopy { display: inline-block; }
+.estmUnit[fincLen='5'] .fincBox .fincCell:last-child .btnLoanCopy { display: none; }
+
+.estmCell {display: none; }
+.estmCell.on {display: block; }
+
+.estmUnit:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; } 
+.estmUnit .boxA:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; } 
+.estmUnit .boxA1 { position: relative; }
+.estmUnit .boxA1:after { content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.estmUnit .boxA2:after { content: ""; display: block; height: 0; clear: both; visibility: hidden; } 
+
+.estmUnit .boxE:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;} 
+.estmUnit .boxE .fincCell:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;} 
+
+.estmUnit .unitA {float: left; width: 32.4%; margin-left: 1.4%; box-shadow: 3px 3px 5px #ddd; margin-bottom: 15px; position: relative;  }
+.mobileSize .unitA {box-shadow: none;  }
+.estmUnit .unitA.grade { margin-left: 0;}
+.estmUnit .unitA.option { height: 356px; }
+.estmUnit .unitA.summy { float: none; position: absolute; bottom: 0; right: 0; }
+
+.estmBox.usedcar .estmUnit .unitA { height: 314px; }
+
+.estmUnit[fincLen='1'] .boxC { float: left; width: 32.4%; }
+.estmUnit[fincLen='1'] .boxE { float: left; width: 67.6%; }
+.estmUnit[fincLen='1'] .boxE .unitC { float: left; width: 47.9%; margin-left: 2.1%; }
+
+.estmCell .vehicle { background: #888; color: #fff; padding: 5px 0;  }
+.estmCell .grand { background: #666; color: #fff; padding: 2px 0;  }
+
+.estmUnit .unitA .summy { position: absolute; bottom: 0; left: 0; width: 100%; }
+
+.estmUnit .unitC {box-shadow: 3px 3px 5px #ddd; margin-bottom: 15px;  }
+.mobileSize .unitC {box-shadow: none;  }
+.estmUnit .boxA2 .unitC {float: left; width: 32.4%; margin-left: 1.4%; position: relative;  }
+.estmUnit .unitC.term { margin-left: 0;}
+
+.estmUnit .unitB { float: left; width: 49.3%; margin-left: 1.4%; box-shadow: 3px 3px 5px #ddd; margin-bottom: 15px; position: relative;border-top: 1px solid #ccc;  }
+.mobileSize .unitB {box-shadow: none;  }
+.estmUnit .unitB:first-child { margin-left: 0; }
+
+.estmUnit .unitD { float: left; width: 32.4%; margin-left: 1.4%; box-shadow: 3px 3px 5px #ddd; margin-bottom: 15px; position: relative;border-top: 1px solid #ccc;  }
+.mobileSize .unitD {box-shadow: none;  }
+.estmUnit .unitD .trans .cont { border-bottom: 1px solid #d2d2d2;}
+.estmUnit .unitD .trans .cont:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;} 
+.estmUnit .unitD:first-child { margin-left: 0; }
+
+/*
+.estmUnit[fincLen='2'] .boxC, .estmUnit[fincLen='3'] .boxC { padding-right: 33.8%; position: relative; }
+.estmUnit[fincLen='2'] .boxC .grand, .estmUnit[fincLen='3'] .boxC .grand {position: absolute; bottom: 0; right: 0; width: 32.5%; }
+*/
+.estmUnit[fincLen='2'] .boxC .cont .box, .estmUnit[fincLen='3'] .boxC .cont .box { float: left; width: 32.4%; margin-left: 1.4%; }
+.estmUnit[fincLen='2'] .boxC .cont .box:first-child, .estmUnit[fincLen='3'] .boxC .cont .box:first-child { margin-left: 0; }
+.estmUnit[fincLen='2'] .boxC .sum, .estmUnit[fincLen='3'] .boxC .sum { float: left; width: 67.6%; margin-top: 5px; }
+.estmUnit[fincLen='2'] .boxC .grand, .estmUnit[fincLen='3'] .boxC .grand { float: right; width: 32.4% }
+.estmUnit[fincLen='2'] .boxC .unitC:after, .estmUnit[fincLen='3'] .boxC .unitC:after, .estmUnit[fincLen='2'] .boxC .cont:after, .estmUnit[fincLen='3'] .boxC .cont:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;} 
+
+.estmUnit[fincLen='2'] .fincCell { float: left; width: 49.3%; margin-left: 1.4%;}
+.estmUnit[fincLen='2'] .fincCell:first-child { margin-left: 0; }
+
+.estmUnit[fincLen='3'] .fincCell { float: left; width: 32.4%; margin-left: 1.4%;}
+.estmUnit[fincLen='3'] .fincCell:first-child { margin-left: 0; }
+
+.estmUnit .boxE:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;} 
+
+.estmBox .btnOpenSlide { position: fixed; z-index: 100; bottom: 10px; left: 50%; }
+.estmBox .btnOpenSlide button { background: #24646e ; color: #fff; border-radius: 2px; padding: 6px 15px; margin: 0 1px; }
+.estmBox .btnOpenSlide button:hover { background: #00b2a5; color: #fff; }
+
+.estmBox .btnOpenSlide { margin-left: -47px;}
+.estmBox .btnOpenSlide.half { margin-left: -95px;}
+/*
+.appType .estmBox .btnOpenSlide { margin-left: 0; left: 0; width: 100%; }
+.appType .estmBox .btnOpenSlide .btnOpenInfo { position: absolute; bottom: 0; left: 10px;}
+.appType .estmBox .btnOpenSlide .btnOpenDocu { position: absolute; bottom: 0; right: 10px;}
+*/
+.mobileSize .estmBox .btnOpenSlide { bottom: 0px; left: 0; width: 100%; margin-left: 0; }
+.mobileSize .estmBox .btnOpenSlide button {width: 100%; line-height: 50px; padding: 0; margin: 0; }
+.mobileSize .estmBox .btnOpenSlide.half button {width: 50%; border-left: 1px solid #fff;}
+.mobileSize .estmBox .btnOpenSlide.half button:first-child {border-left: 0}
+
+@media screen and (min-width: 1880px) {
+	.wrapper.use .estmBox.open .frame { max-width: inherit; padding: 0 15px;  }
+	.wrapper.use .estmBox.open .estmMain { float: left; width: 56%;}
+	.wrapper.use .estmBox.open .estmDocu { float: right; width: 43%;}
+	.wrapper.use .estmBox.open:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;} 
+}
+@media screen and (max-width: 840px) {
+	.estmUnit .unitA {float: left; width: 48.8%; margin-left: 2.2%;}
+	.estmUnit .unitA.discount { margin-left: 0;}
+	
+	.estmUnit .unitB { float: none; width: auto; margin-left: 0; }
+	.estmUnit .unitD { float: none; width: auto; margin-left: 0; }
+	
+	.estmUnit[fincLen='2'] .boxC, .estmUnit[fincLen='3'] .boxC { padding-right: 0; }
+	.estmUnit[fincLen='2'] .boxC .grand, .estmUnit[fincLen='3'] .boxC .grand {position: relative; bottom: auto; right: auto; width: auto; }
+	
+	.estmUnit[fincLen='2'] .boxC .cont .box, .estmUnit[fincLen='3'] .boxC .cont .box { float: none; width: auto; margin-left: 0;}
+	.estmUnit[fincLen='2'] .boxC .sum, .estmUnit[fincLen='3'] .boxC .sum { float: none; width: auto; margin-top: 0; }
+	.estmUnit[fincLen='2'] .boxC .grand, .estmUnit[fincLen='3'] .boxC .grand { float: none; width: auto }
+
+	.estmUnit[fincLen='1'] .boxC { float: none; width: auto; }
+	.estmUnit[fincLen='1'] .boxE { float: none; width: auto; }
+	.estmUnit[fincLen='1'] .boxE .unitC { width: 48.9%; margin-left: 2.2%; }
+	.estmUnit[fincLen='1'] .boxE .unitC.paySel { margin-left: 0;  }
+	/*
+	.estmUnit[fincLen='2'] .fincCell { float: none; width: auto; margin-left: 0;}
+	.estmUnit[fincLen='2'] .boxE .unitC { float: left; width: 48.9%; margin-left: 2.2%; }
+	.estmUnit[fincLen='2'] .boxE .unitC.paySel { margin-left: 0;  }
+	.estmUnit[fincLen='3'] .fincCell { float: none; width: auto; margin-left: 0;}
+	.estmUnit[fincLen='3'] .boxE .unitC { float: left; width: 48.9%; margin-left: 2.2%; }
+	.estmUnit[fincLen='3'] .boxE .unitC.paySel { margin-left: 0;  }
+	.estmUnit[fincLen='3'] .boxE .unitC.compare { margin-left: 0; float: none; width: auto; }
+	*/
+	.estmUnit[fincLen='2'] .fincFrame {overflow-x: auto;}
+	.estmUnit[fincLen='2'] .boxE { }
+	.estmUnit[fincLen='2'] .fincCell { float: left; width: 49%; margin-left: 2%;}
+	.estmUnit[fincLen='2'] .fincCell:first-child {margin-left: 0;}
+	.estmUnit[fincLen='3'] .fincFrame {overflow-x: auto;}
+	.estmUnit[fincLen='3'] .boxE { width: 920px;}
+	.estmUnit[fincLen='3'] .fincCell { float: left; width: 300px; margin-left: 10px;}
+	.estmUnit[fincLen='3'] .fincCell:first-child {margin-left: 0;}
+	
+	.web .estmBox .btnOpenSlide .btnOpenDocu { margin-left: 80px;}
+	.wrapper.use:not(.app) .footer .call { padding-right: 0; text-align: left; padding-left: 10px; }
+	
+	.estmUnit .fincFrame .selbar > .list, .estmUnit .fincFrame .selsub > .list, .estmUnit .fincFrame .seltop > .list { position: relative; top: 0; };
+    
+	
+}
+@media screen and  (max-width: 680px) {
+	.estmUnit .unitA { float: none; width: auto; margin-left: 0;}
+	.estmUnit .unitA.summy { position: relative; bottom: auto;   right: auto; }
+
+	.estmUnit[fincLen='1'] .boxE .unitC { float: none; width: auto; margin-left: 0; }
+	.estmUnit[fincLen='2'] .boxE .unitC { float: none; width: auto; margin-left: 0; }
+	.estmUnit[fincLen='3'] .boxE .unitC { float: none; width: auto; margin-left: 0; }
+	
+	.estmUnit[fincLen='2'] .fincFrame {overflow-x: auto;}
+	.estmUnit[fincLen='2'] .boxE { width: 610px;}
+	.estmUnit[fincLen='2'] .fincCell { float: left; width: 300px; margin-left: 10px;}
+	.estmUnit[fincLen='2'] .fincCell:first-child {margin-left: 0;}
+	
+	.estmCell .others .tax.blank { display: none; } 
+	
+	.estmBox.usedcar .estmUnit .unitA { height: auto; }
+	
+	.web. .estmBox .btnOpenSlide { margin-left: -7px;}
+	
+}
+/* 리스렌트 5개 확장 */
+.estmUnit[fincLen='4'] .fincFrame, .estmUnit[fincLen='5'] .fincFrame {overflow-x: auto;}
+.estmUnit[fincLen='4'] .boxE { width: 1230px;}
+.estmUnit[fincLen='5'] .boxE { width: 1540px;}
+.estmUnit[fincLen='4'] .fincCell, .estmUnit[fincLen='5'] .fincCell  { float: left; width: 300px; margin-left: 10px; }
+.estmUnit[fincLen='4'] .fincCell:first-child, .estmUnit[fincLen='5'] .fincCell:first-child {margin-left: 0; }
+
+/* 견적 본문 items */
+.estmInfo { text-align: center;}
+.estmInfo button.round, .estmInfo a.round { display: inline-block;  padding: 3px 8px; margin: 0 3px 7px 3px; background: #e0e0e0; border-radius: 2px; font-size: 13px; }
+.estmInfo button.round:hover, .estmInfo a.round:hover {background: #aaaaaa; color: #fff; text-decoration: none; }
+
+
+.estmUnit .top { background: #f6f6f6; position: relative; border-top: 1px solid #a9a9a9; padding-top: 3px; }
+.estmUnit .top h4{ padding: 5px 0; text-align: center; }
+.estmUnit .top .no { position: absolute; top: 1px; left: 40px; font-size: 16px; font-weight: bold; line-height: 38px; }
+.estmUnit .top .checkbox { text-align: center;    padding-top: 3px;    border-bottom: 1px solid #d4d4d4;    padding-bottom: 4px; }
+
+.wrapper.usedcar .estmUnit .top h4{ padding: 5px 0; margin-right: 20px; border-bottom: 0; font-size: 16px; }
+
+.estmUnit .top .updown { position: absolute; top: 0px; right: 0px;  width: 100%; height: 38px; font-size:0px; line-height:0; text-indent:-9999px; background: transparent; }
+.estmUnit .top .updown:after{content: "";  position: absolute; top: 0px; right: 0px; width: 38px; height: 38px; background: url(/images/icon.png) -405px -7px no-repeat; background-size: 650px 300px;}
+.estmUnit .top .updown:hover:after { background: url(/images/icon.png) -405px -57px no-repeat; background-size: 650px 300px;}
+.estmUnit .top .updown.open:after, .estmUnit .top.open .updown:after{ background: url(/images/icon.png) -355px -7px no-repeat; background-size: 650px 300px;}
+.estmUnit .top .updown.open:hover:after, .estmUnit .top.open .updown:hover:after { background: url(/images/icon.png) -355px -57px no-repeat; background-size: 650px 300px;}
+
+.estmUnit .top .testTop {position: relative; }
+.estmUnit .top .testTop h4 { text-align: left;  padding-left: 20px; }
+.estmUnit .top .testTop input { position: absolute; right: 53px; top: 2px;text-align: center; width: 120px; font-size: 17px; padding: 1px; }
+.estmUnit .top .testTop button { position: absolute; right: 5px; top: 2px; background: #24646e; color: #fff; padding: 5px 10px; }
+    
+.estmUnit button.star { position: absolute; top: 0px; left: 0px; width: 34px; height: 38px; font-size:0px; line-height:0; text-indent:-9999px;  background: url(/images/icon.png) -9px -106px no-repeat; background-size: 650px 300px;}
+.estmUnit button.star.on { background: url(/images/icon.png) -9px -156px no-repeat; background-size: 650px 300px;}
+
+.estmUnit button.copy { position: absolute; top: 0px; right: 0px;  width: 34px; height: 38px; font-size:0px; line-height:0; text-indent:-9999px;  background: url(/images/icon.png) -107px -107px no-repeat; background-size: 650px 300px;}
+.estmUnit button.copy:hover { background: url(/images/icon.png) -107px -157px no-repeat; background-size: 650px 300px;}
+.estmUnit button.del { position: absolute; top: 0px; right: 0; width: 34px; height: 38px; font-size:0px; line-height:0; text-indent:-9999px;  background: url(/images/icon.png) -158px -107px no-repeat; background-size: 650px 300px;}
+.estmUnit button.del:hover { background: url(/images/icon.png) -158px -157px no-repeat; background-size: 650px 300px;}
+.estmUnit button.save { position: absolute; top: 0px; right: 34px; width: 34px; height: 38px; font-size:0px; line-height:0; text-indent:-9999px;  background: url(/images/icon.png) -60px -106px no-repeat; background-size: 650px 300px;}
+.estmUnit button.save:hover { background: url(/images/icon.png) -60px -156px no-repeat; background-size: 650px 300px;}
+
+
+.estmUnit button.add { display: block; margin: 10px 0; width: 100%; height: 38px; font-size:0px; line-height:0; text-indent:-9999px;  background: #f6f6f6; position: relative; }
+.estmUnit button.add:after{ content: ""; position: absolute; top: 50%; left: 50%; margin-top: -19px; margin-left: -19px; width: 38px; height: 38px; background: url(/images/icon.png) -355px -207px no-repeat; background-size: 650px 300px;}
+.estmUnit button.add:hover {background: #e8e8e8; }
+.estmUnit button.add:hover:after { background: url(/images/icon.png) -355px -257px no-repeat; background-size: 650px 300px; }
+.estmUnit button.cancel {  width: 30px; height: 30px; font-size: 0px; line-height: 0; text-indent: -9999px;background: #f0f0f0 url(/images/icon.png) -210px -160px no-repeat; background-size: 650px 300px;}
+
+.estmUnit button.round { padding: 3px 8px; background: #e0e0e0; border-radius: 20px; font-size: 13px; }
+.estmUnit button.round:hover {background: #aaaaaa; color: #fff; }
+
+.estmUnit .selbar { position: relative; }
+.estmUnit .selbar > button {position: relative; width: 100%;  height: 46px; padding: 0 33px 0 70px; border-bottom: 1px solid #d2d2d2; background: #fff; text-align: left; }
+.estmUnit .selbar > button:hover { background: #e8e8e8 }
+.estmUnit .selbar > button .bar {display: block; }
+.estmUnit .selbar > button .title { position: absolute; top: 50%; left: 0; margin-top: -10px;  font-size: 13px; font-weight: bold; color: #666; width: 60px; text-align: center; }
+.estmUnit .selbar > button:after {content: ""; position: absolute; top: 50%; right: 8px; width: 14px; height: 14px; margin-top: -8px; background: url(/images/icon.png) -418px -17px no-repeat; background-size: 650px 300px;}
+.estmUnit .selbar > button:hover:after { background: url(/images/icon.png) -418px -67px no-repeat; background-size: 650px 300px; }
+.estmUnit .selbar.open > button:after { background: url(/images/icon.png) -368px -17px no-repeat; background-size: 650px 300px;}
+.estmUnit .selbar.open > button:hover:after { background: url(/images/icon.png) -368px -67px no-repeat; background-size: 650px 300px; }
+.estmUnit .selbar > button .price { color: #ed1652; font-weight: bold; float: right; margin-left: 10px; }
+.estmUnit .selbar > button .sub { float: right; color: #666; font-size: 13px; margin-left: 10px;}
+.estmUnit .selbar .bar .blank { color: #ed1652; }
+.estmUnit .selbar > .list, .estmUnit .selsub > .list, .estmUnit .seltop > .list  { display: none; position: absolute; top: 0; left: 0;  width: 100%; background: #fff; border-top: 3px solid #24646e; border-bottom: 10px solid #24646e; box-shadow: 3px 3px 5px #ccc; padding-bottom: 20px; }
+.estmUnit button.toup { position: absolute; left: 50%; bottom: 0px; margin-left: -13px; width: 26px; height: 20px; font-size:0px; line-height:0; text-indent:-9999px; background: #24646e url(/images/icon.png) -212px -210px no-repeat; background-size: 650px 300px;}
+.estmUnit button.toup:before { content: ""; position: absolute; left: -20px; top: 0; width:0px; height:0;  border-top: 20px solid transparent; border-right: 20px solid #24646e; }
+.estmUnit button.toup:after { content: ""; position: absolute; right: -20px; top: 0; width:0px; height:0;  border-top: 20px solid transparent; border-left: 20px solid #24646e; }
+
+.mobileSize .estmUnit .selbar > .list, .mobileSize .estmUnit .selsub > .list, .mobileSize .estmUnit .seltop > .list  { box-shadow: none; }
+
+.estmUnit .selbox .selbar { float: left; width: 50%; }
+.estmUnit .selbox:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; } 
+
+.estmUnit .selbar.open > .list, .estmUnit .selsub.open > .list, .estmUnit .selpop.open > .list, .estmUnit .seltop.open > .list { z-index: 10; }
+
+.estmUnit .selbar > .list { top: 45px; background:#f6f6f6;  }
+.estmUnit .selsub > .list { top: 38px; }
+
+.estmUnit .selsub > .list li { border-bottom: 1px solid #d2d2d2; position: relative; }
+.estmUnit .selsub > .list li button { display: block; text-align: center; width: 100%; background: #fff; padding: 8px 0; }
+.estmUnit .selsub > .list.left li button { text-align: left; padding: 8px 10px; }
+.estmUnit .selsub > .list.right li button { text-align: right; padding: 8px 10px; }
+.estmUnit .selsub > .list li button .desc {float: right; margin-lleft: 10px; }
+.estmUnit .selsub > .list li button:hover { background: #e8e8e8;}
+.estmUnit .selsub > .list li.on button { color: #ed1652; font-weight: bold;  }
+.estmUnit .selsub > .list li.on button .desc { color: #222; font-weight: normal;  }
+.estmUnit .selsub > .list li:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; } 
+.estmUnit .selsub > .list .checkbox { border: 5px solid #e0e0e0; padding: 3px 10px; background: #fff; }
+.estmUnit .selsub > .list .checkbox > span:not(.off) { display: inline-block; padding: 2px 0px; }
+.estmUnit .selsub .blank { color: #ed1652; }
+
+.estmUnit .seltop > .list { top: 39px; background:#f6f6f6;}
+.estmUnit .seltop > .list ul { padding: 5px; }
+.estmUnit .seltop > .list li { margin: 2% 1.3%; }
+.estmUnit .seltop > .list li button { position: relative; background: #fff; box-shadow: 3px 3px 5px #ddd; display: table; width: 100%; padding: 8px 10px; box-sizing: border-box; border: 1px solid #fff;}
+.estmUnit .seltop > .list li button:hover { background: #e8e8e8; text-decoration: none;  }
+.estmUnit .seltop > .list li.on button { border: 1px solid #ed1652;  background: #fffff4; }
+.estmUnit .seltop > .list li.on button:after {content: ""; position: absolute; top: 0; left: 0; width: 0; height: 0; border-right: 15px solid transparent; border-top: 15px solid #ed1652; }
+
+
+.estmUnit .selbar[kind='brand'] .bar { padding-left: 50px; display: block;}
+.estmUnit .selbar[kind='brand'] .bar img { width: 60px; position: absolute; top: 4px; left: 60px; }
+.estmUnit .selbar[kind='brand'] .bar .blank {margin-left: -50px; }
+
+.estmUnit .selbar.color .bar {}
+.estmUnit .selbar.color .bar .name { padding-left: 30px; display: inline-block; }
+.estmUnit .selbar.color .bar .colorChip { position:absolute; top:50%; margin-top: -11px;; left: 69px; border: 1px solid #ccc; }
+.estmUnit .selbar.color .bar .colorChip .colorMain { position:relative; display:inline-block; width:20px; height:21px; }
+.estmUnit .selbar.color .bar .colorChip .colorSub { position:absolute; display:inline-block; width:20px; height:10px; left:0; bottom: 0; }
+
+.estmUnit .scroll { width: 100%; position: absolute; top: 40px; left: 0; background: #fff; }
+.estmUnit .scroll .cont { height: 275px; overflow-y: auto; border-bottom: 1px solid #d2d2d2; }
+.estmUnit .scroll.open { box-shadow: 3px 3px 5px #ccc; z-index: 10; }
+.estmUnit .scroll.open .cont { border-top: 3px solid #24646e; border-bottom: 10px solid #24646e; margin-top: -1px; position: relative;  }
+.estmUnit .scroll button.slideup { display: none; }
+.estmUnit .scroll.open button.slideup {display: inline-block;}
+
+
+.estmUnit .sum { background: #f6f6f6; padding: 5px 0; text-align:right; position: relative;}
+.estmUnit .sum .name { position: absolute; top: 10px; left: 10px; font-size: 13px; color: #666; font-weight: bold; }
+.estmUnit .sum .price {color: #666; font-size: 20px; font-weight: bold; padding-right: 15px; }
+.estmCell .subs { text-align: right; padding: 2px 15px 2px 10px; position: relative; height: 23px; }
+.estmCell .subs .name { float: left; }
+.estmCell .subs .price { font-size: 16px; }
+.estmCell .subs:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;}
+.estmUnit .total { text-align: right; padding: 0 13px 0px 10px;  position: relative; min-height: 46px; }
+.estmUnit .total .name { position: absolute; left: 10px; top: 12px; font-weight: bold;   }
+.estmUnit .total .price { font-size: 25px; font-weight: bold; line-height: 45px; }
+.estmUnit .total .price.max { display: none; }
+.estmUnit .total.maxView .price { font-size: 18px; font-weight: bold; line-height: 28px; }
+.estmUnit .total.maxView .price.max:not(.off) { display: block; font-size: 14px; font-weight: normal; line-height: 16px; }
+.estmUnit .total.maxView .price.max::before { content: "~ "}
+.estmUnit .total .hold { position: absolute; top: -12px; right: 0px; background: #888; padding: 0 15px 0 8px; border-radius: 10px 0 0 0;  }
+.estmUnit .total button { position: absolute; right: 7px; top: 9px; border-radius: 2px; padding: 5px 10px; background: #ed1652; color: #fff; font-weight: bold;  }
+.estmUnit .total .price.ucar { line-height: 29px;  }
+.estmUnit .total .price.ucar input { text-align: right; color: #ed1652; font-weight: bold; font-size:16px; line-height: 23px; width: 150px; }
+
+.estmUnit .selsub:not(.noline), .estmUnit .unitC .selpop:not(.noline) { border-bottom: 1px solid #d2d2d2; }
+.estmUnit .fincCell .fincView{ display: none; }
+.estmUnit .fincCell .unitC .blank { padding: 120px 10px; text-align: center;  color: #ed1652;}
+
+.estmUnit .selsub > button, .estmUnit .selpop > button { background: #fff; min-height: 38px; position: relative; padding-left: 0px; padding-right: 33px; text-align: left;  width: 100%; }
+.estmUnit .selsub > button:after {content: ""; position: absolute; top: 50%; right: 8px; width: 14px; height: 14px; margin-top: -8px; background: url(/images/icon.png) -418px -17px no-repeat; background-size: 650px 300px;}
+.estmUnit .selsub > button:hover:after {  background: url(/images/icon.png) -418px -67px no-repeat; background-size: 650px 300px; }
+.estmUnit .selsub > button:hover { background: #e8e8e8 }
+.estmUnit .selsub > button .price { color: #ed1652; font-weight: bold; float: right; }
+.estmUnit .selsub > button .desc {font-size: 13px; }
+.estmUnit .selsub.open > button:after { background: url(/images/icon.png) -368px -17px no-repeat; background-size: 650px 300px;}
+.estmUnit .selsub.open > button:hover:after { background: url(/images/icon.png) -368px -67px no-repeat; background-size: 650px 300px; }
+.estmUnit .selpop > button:after {content: ""; position: absolute; top: 50%; right: 6px; width: 17px; height: 17px; margin-top: -8px; background: url(/images/icon.png) -417px -117px no-repeat; background-size: 650px 300px;}
+.estmUnit .selpop > button:hover:after {  background: url(/images/icon.png) -417px -167px no-repeat; background-size: 650px 300px; }
+.estmUnit .selpop > button:hover { background: #e8e8e8 }
+.estmUnit .selpop > button .price { color: #ed1652; font-weight: bold; float: right; }
+
+.estmUnit .selsub:not(.trans), .estmUnit .unitC .selpop { position: relative;}
+.estmUnit .selsub > .title, .estmUnit .unitC .selpop > .title { position: absolute; top: 50%; left: 0; margin-top: -10px;  font-size: 13px; font-weight: bold; color: #666; width: 70px; text-align: center; }
+.estmUnit .selsub button .title, .estmUnit .unitC .selpop button .title { font-size: 13px; font-weight: bold; color: #666; padding-right: 10px; min-width: 70px; display: inline-block; text-align: center; }
+
+
+.estmBox.usedcar .estmUnit .unitC .selsub, .estmBox.usedcar .estmUnit .unitC .selpop { padding-left: 60px; }
+.estmBox.usedcar .estmUnit .unitC .selsub .title, .estmBox.usedcar .estmUnit .unitC .selpop .title { width: 60px; }
+
+.estmUnit .free .selsub > button, .estmUnit .transOther .selsub > button, .estmUnit .transOther .selsub .price { line-height: 1.2; }
+
+.estmUnit .hot { background: #f6f6f6; padding: 5px 10px; position: relative; }
+.estmUnit .hot span { line-height: 31px; }
+.estmUnit .hot .price { float: right; }
+
+.estmUnit .selsub.cnt2A { float: left; width: 35%; }
+.estmUnit .selsub.cnt2B { float: left; width: 65%; }
+.estmUnit .selsub.cnt3A { float: left; width: 25%; }
+.estmUnit .selsub.cnt3B { float: left; width: 30%; }
+.estmUnit .selsub.cnt3C { float: left; width: 45%; }
+
+.estmUnit .unitC .boxCnt2 .selsub { padding-left: 0; }
+
+.estmUnit .databar { position: relative; border-bottom: 1px solid #d2d2d2; background: #fff; text-align: left; padding: 0 15px 0 80px; min-height: 38px;  }
+.estmUnit .databar .title { position: absolute; top: 50%; left: 0; margin-top: -10px;  font-size: 13px; font-weight: bold; color: #666; width: 70px; text-align: center; }
+.estmUnit .databar .title.line2 { margin-top: -19px; }
+.estmUnit .databar .price { float: right; line-height: 38px;}
+.estmUnit .databar .desc { line-height: 38px; font-size: 13px; }
+.estmUnit .databar .guide { color: #00aade;  font-size: 13px; padding-bottom: 5px;  font-weight: normal;  font-style: normal; }
+.estmUnit .unitA .databar { border-top: 1px solid #ccc; }
+.estmUnit .unitA .databar .title { margin-left: 15px; }
+.estmUnit .databar.fincView .price { color: #ed1652; font-weight: bold; padding-right: 18px; }
+
+
+
+.estmUnit .databar.sub {padding-right: 33px;}
+.estmUnit .databar.sub .price { color: #ed1652; font-weight: bold; float: right; }
+
+
+.estmUnit .payStep .databar.multi .price { line-height: 29px;}
+.estmUnit .payStep .databar.multi .desc { line-height: 29px;}
+.estmUnit .payStep .cont { min-height: 275px; }
+
+.estmUnit .databar > div:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;} 
+.estmUnit .databar > div {border-top: 1px dashed #d2d2d2;}
+.estmUnit .databar > span + div {border-top: 0;}
+/* .estmUnit .databar label { line-height: 38px;} */
+.estmUnit .databar.insEmp label { line-height: 30px;}
+
+.estmUnit .databar .searchbox input { position: absolute; right: 53px; top: 2px;text-align: center; width: 150px; font-size: 17px; padding: 1px; }
+.estmUnit .databar .searchbox  button { position: absolute; right: 5px; top: 2px; background: #24646e; color: #fff; padding: 5px 10px; }
+
+
+.estmUnit .inputbar { position: relative; border-bottom: 1px solid #d2d2d2; background: #fff; text-align: left; padding: 0 15px 0 60px; min-height: 45px;  }
+.estmUnit .inputbar:last-child { border-bottom: 0; }
+.estmUnit .inputbar .title { position: absolute; top: 50%; left: 0; margin-top: -10px;  font-size: 13px; font-weight: bold; color: #666; width: 60px; text-align: center; }
+.estmUnit .inputbar > div > span { line-height: 45px; }
+.estmUnit .inputbar .full { display: block; padding-right: 25px; }
+.estmUnit .inputbar .full input{ width: 100%; }
+.estmUnit .inputbar .full textarea{ width: 100%; height: 82px; display: block; margin: 7px 0;}
+.estmUnit .inputbar .half input { width: 80px; text-align: center; }
+.estmUnit .inputbar.full { padding: 7px 10px;}
+.estmUnit .inputbar.full textarea{ width: 100%; height: 82px; display: block;}
+.estmUnit .inputbar button { position: absolute; top: 4px; right: 0; width: 38px; height: 38px;}
+.estmUnit .inputbar button.find { font-size:0px; line-height:0; text-indent:-9999px; padding: 0; background: url(/images/icon.png) -6px -6px no-repeat; background-size: 650px 300px; }
+.estmUnit .inputbar button.find:hover { background: url(/images/icon.png) -6px -56px no-repeat; background-size: 650px 300px; }
+.estmUnit .inputbar button.cancel {font-size:0px; line-height:0; text-indent:-9999px; padding: 0; top: 0; background: url(/images/icon.png) -206px -160px no-repeat; background-size: 650px 300px; }
+
+@media screen and (min-width: 840px) {
+	.estmUnit .box.overlap .databar {padding-left: 10px;}
+	.estmUnit .box.overlap .databar .title {background: #f0f0f0; border-radius: 0 10px 10px 0; width: 35px; padding-right: 5px; }
+}
+@media screen and (max-width: 680px) {
+	.estmUnit .unitA.option { height: auto; }
+	.estmUnit .unitA button.updown { display: none; }
+	.estmUnit .scroll { width: auto; position: relative;; top: auto; left: auto; }
+	.estmUnit .scroll .cont { height: auto;}
+	
+	.mobileSize .estmUnit .unitA button.updown { display: block; }
+	.mobileSize .estmUnit .unitA .scroll .optionList li:not(.on) { display: none; }
+	.mobileSize .estmUnit .unitA .scroll.open .optionList li { display: block; }
+	.mobileSize .estmUnit .unitA .scroll.open .optionList li.off { display: none; }
+	.mobileSize .estmUnit .unitA .optionList { min-height: 0; }
+	.mobileSize .estmUnit .unitA .scroll.open .optionList { margin-bottom: 25px; }
+	.mobileSize .estmUnit .scroll.open { z-index: 1; }
+	
+	.mobileSize .estmUnit .selbar > .list { top: 0; position: relative; }
+	.mobileSize .estmUnit .selsub > .list { top: 0; position: relative; }
+	.mobileSize .unitB {margin-bottom: -1px;}
+	.mobileSize .unitD {margin-bottom: -1px;}
+	.mobileSize .boxA2 {margin-bottom: 20px;}
+}
+
+
+/* 브랜드 선택 */
+
+.brandBox .box { }
+.brandBox .local, .brandPop .local { position: relative; width: 50px; background: #e8e8e8; text-align: center; padding: 3px 0; font-size: 13px; font-weight: bold; margin-top: 10px; }
+.brandBox .local:after, .brandPop .local:after {content: ""; position: absolute; left: 100%; top: 50%; margin-top: -6px; width:0; height:0; border-style:solid; border-width:5px; border-color:transparent transparent transparent #e8e8e8;}
+.brandBox ul, .brandPop ul { margin-left: 53px; margin-top: -35px;}
+.brandBox li, .brandPop li {float: left; width: 60px; height: 60px; margin-left: 5px; margin-bottom: 5px;}
+.brandBox li.on button, .brandPop li.on button { box-shadow: 3px 3px 5px #ddd;}
+
+.brandSel {}
+.brandSel .box { }
+.brandSel .local { background: #eee; text-align: center; padding: 3px 0; font-size: 13px; font-weight: bold;}
+.brandSel ul {padding: 5px; padding-bottom: 10px;}
+.brandSel li {float: left; width: 22.4%; margin: 1.3%; }
+.brandSel li button { box-shadow: 3px 3px 5px #ddd;}
+
+
+.brandList li img { display: inline-block; width: 100%; max-width: 70px; }
+.brandList li span { display: block; width: 100%; text-align: center; font-size: 13px; padding-bottom: 3px; margin-top: -7px; overflow: hidden;  white-space: nowrap; }
+.brandList li span.len4 { letter-spacing: -1px; }
+.brandList li span.len5 { letter-spacing: -2px; }
+.brandList li button { display: block; width: 100%; padding: 0; background: #fff; border: 1px solid #fff; position: relative;}
+.brandList li button:hover { border: 1px solid #999999; background: #e8e8e8; text-decoration: none;  }
+
+.brandList li.not button:before { content: "취급 불가"; position: absolute; top: 0px; right: 0px; background: rgba(237, 22, 82, 0.7); color: #fff; border-radius: 10px; font-size: 13px; padding: 2px 6px; }
+.brandList li.on button { border: 1px solid #ed1652; background: #fffff4;}
+.brandList li.on button:after {content: ""; position: absolute; top: 0; left: 0; width: 0; height: 0; border-right: 15px solid transparent; border-top: 15px solid #ed1652; }
+
+.brandList:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;}
+
+.cartypeBox .box { }
+.cartypeBox .type { position: relative; width: 50px; background: #e8e8e8; text-align: center; padding: 3px 0; font-size: 13px; font-weight: bold; margin-top: 5px; }
+.cartypeBox .type:after {content: ""; position: absolute; left: 100%; top: 50%; margin-top: -6px; width:0; height:0; border-style:solid; border-width:5px; border-color:transparent transparent transparent #e8e8e8;}
+.cartypeBox ul { margin-left: 53px; margin-top: -28px;}
+.cartypeBox li {float: left; width: 60px; height: 33px; margin-left: 5px; margin-bottom: 5px;}
+.cartypeBox li span { display: block; width: 100%; text-align: center; font-size: 13px; }
+.cartypeBox li span.len4 { letter-spacing: -1px; }
+.cartypeBox li span.len5 { letter-spacing: -2px; }
+.cartypeBox li button, .cartypeBox li a { display: block; width: 100%; height: 100%; padding: 0; background: transparent; border: 1px solid #d2d2d2; }
+.cartypeBox li button:hover, .cartypeBox li a:hover { background: #e8e8e8; text-decoration: none;  }
+.cartypeBox li.on button { background: #ffffff; border: 1px solid #ed1652; box-shadow: 3px 3px 5px #ddd;}
+.cartypeBox li.on button:hover { background: #fbf8f3; }
+.cartypeBox ul:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;}
+@media and (max-width: 620px) {
+	.brandBox ul { margin-left: 0; margin-top: 5px;}
+	.brandSel ul { margin-left: 0; margin-top: 5px;}
+	.brandBox li { margin-left: 4px; }
+}
+@media screen and (max-width: 640px) {
+	.brandPop ul { margin-left: 0; margin-top: 5px;}
+	.brandPop li { margin-left: 4px; }
+}
+
+/* 모델 목록 */
+.estmCell .modelList { padding: 5px; padding-bottom: 10px; }
+.estmCell .modelList > li { float:left; width: 47.4%; margin: 1.3%; }
+.estmCell .modelList > li .logo { display: none; }
+.searchBox .modelList { padding: 5px; padding-bottom: 10px; }
+.searchBox .modelList > li { float:left; width: 19%; margin: 0.5%; }
+.modelPop .modelList { padding: 5px; padding-bottom: 10px; }
+.modelPop .modelList > li { float:left; width: 24%; margin: 0.5%; }
+.modelPop .modelList > li .logo { display: none; }
+
+.modelList > li button,.modelList > li a {display: block; width: 100%; position: relative; background: #fff; border: 1px solid #fff; padding: 0; box-shadow: 3px 3px 5px #ddd; }
+.modelList > li button:hover, .modelList > li a:hover { border: 1px solid #999999; background: #e8e8e8; }
+.modelList > li .logo { position: absolute; top: 0; left: 0; width: 50px;}
+.modelList > li .logo img { width: 100%; }
+.modelList > li .name { padding: 0; margin-top: -5px; height: 25px;  text-align: center; overflow: hidden;  white-space: nowrap; text-overflow: ellipsis; }
+.modelList > li .car img { width: 86%; margin: 0 7%;  }
+
+.modelList > li .type { display: block; position: absolute; top: 0; right: 0; font-size: 13px; background: rgba(214, 64, 51, 0.7); padding: 2px 6px; color: #fff; border-radius: 15px;}
+.modelList > li.state3 .type { display: none; }
+.modelList > li.state3 button:before { content: "재고 한정"; position: absolute; top: 0px; right: 0px; background: rgba(150, 150, 150, 0.7); color: #fff; border-radius: 10px; font-size: 13px; padding: 2px 6px; }
+.modelList > li.not button:before { content: "취급 불가"; position: absolute; top: 0px; right: 0px; background: rgba(237, 22, 82, 0.7); color: #fff; border-radius: 10px; font-size: 13px; padding: 2px 6px; }
+.modelList > li.on button { border: 1px solid #ed1652;  background: #fffff4;}
+.modelList > li.on button:after {content: ""; position: absolute; top: 0; left: 0; width: 0; height: 0; border-right: 15px solid transparent; border-top: 15px solid #ed1652; }
+.modelList > li .link { position: absolute; top: -8px; right: -10px; width: 70px; background: #6c5245; border: 1px solid #5e463a; z-index: 10;}
+.modelList > li .link li:not(:first-child) {border-top: 1px dashed #5e463a; }
+.modelList > li .link a { display: block; height: 30px; text-align: center; line-height: 30px; color: #fff;  }
+.modelList:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;}
+
+.estmCell .modelList > li .type { display: none;}
+.modelPop .modelList > li .type { display: none;}
+
+@media screen and (max-width: 980px) {
+	.searchBox .modelList > li { float:left; width: 24%; margin: 0.5%; }
+}
+@media screen and (max-width: 720px) {
+	.searchBox .modelList > li { float:left; width: 31.9%; margin: 0.7%; }
+	.modelPop .modelList > li { float:left; width: 31.9%; margin: 0.7%; }
+}
+@media screen and (max-width: 560px) {
+	.searchBox .modelList > li { float:left; width: 48%; margin: 1%; }
+	.modelPop .modelList > li { float:left; width: 48%; margin: 1%; }
+}
+@media screen and (min-width: 680px) {
+	.estmCell .modelSel > li { float:left; width: 31.3%; margin: 1%; }
+}
+
+/* 라인업 선택 */
+.estmCell .lineupList { padding: 5px; }
+.estmCell .lineupList li { margin: 2% 1.3%; position: relative; }
+.lineupList li.blank { background: #f4f4f4; padding: 10px; text-align: center; font-size: 13px; color: #666;  }
+.lineupList li button {position: relative; background: #fff; box-shadow: 3px 3px 5px #ddd; display: table; width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #fff; text-align: left; }
+.lineupList li.on button { border: 1px solid #ed1652;  background: #fffff4; }
+.lineupList li.on button:after {content: ""; position: absolute; top: 0; left: 0; width: 0; height: 0; border-right: 15px solid transparent; border-top: 15px solid #ed1652; }
+.lineupList li button:hover { border: 1px solid #999999; background: #e8e8e8; text-decoration: none; }
+.lineupList span.sub {color: #666; font-size: 13px; float: right; margin-left: 10px;}
+.lineupList span.state3:before { content: "재고 한정"; position: absolute; top: 0px; right: 0px; background: rgba(150, 150, 150, 0.7); color: #fff; border-radius: 10px; font-size: 13px; padding: 2px 6px; }
+.lineupList li.not span:before { content: "취급 불가"; position: absolute; top: 0px; right: 0px; background: rgba(237, 22, 82, 0.4); color: #fff; border-radius: 10px; font-size: 13px; padding: 2px 6px; }
+.lineupList li:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;}
+
+/* 트림 선택 */
+.estmCell .trimList { padding: 5px; }
+.estmCell .trimList li { margin: 2% 1.3%; }
+
+.trimList li .frame, .trimList li a, .trimList li button { position: relative; background: #fff; box-shadow: 3px 3px 5px #ddd; display: table; width: 100%; padding: 0 10px 30px 10px; box-sizing: border-box; border: 1px solid #fff;}
+.trimList li .name { height: 45px; text-align: left; display: table-cell; vertical-align: middle;  overflow: hidden; text-overflow: ellipsis; line-height: 140%; }
+.trimList li .state3:before { content: "재고 한정"; position: absolute; top: 0px; right: 0px; background: rgba(150, 150, 150, 0.7); color: #fff; border-radius: 10px; font-size: 13px; padding: 2px 6px; }
+.trimList li.not .name:before { content: "취급 불가"; position: absolute; top: 0px; right: 0px; background: rgba(237, 22, 82, 0.7); color: #fff; border-radius: 10px; font-size: 13px; padding: 2px 6px; }
+.trimList li .info { position: absolute; bottom: 2px; left: 2px; color: #aaa; font-size: 12px;}
+.trimList li .price { position: absolute; bottom: 6px; right: 5px; background: rgba(255,255,255,0.7); padding: 2px 8px; border-radius: 15px; }
+.trimList li.on .price { color: #ed1652; font-weight: bold; }
+.trimList:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.trimList li button { width: 100%; position: relative; }
+.trimList li button:hover {border: 1px solid #999999;  background: #e8e8e8; text-decoration: none;  }
+.trimList li.on button { border: 1px solid #ed1652;  background: #fffff4; }
+.trimList li.on button:after {content: ""; position: absolute; top: 0; left: 0; width: 0; height: 0; border-right: 15px solid transparent; border-top: 15px solid #ed1652; }
+
+/* 색상 */
+.estmCell .colorList { padding: 5px; }
+.estmCell .colorList li:not(.selfBox) {  margin: 2% 1.3%;  position: relative; }
+
+.colorList li button { position: relative; background: #fff; box-shadow: 3px 3px 5px #ddd; display: table; width: 100%; padding: 0 10px 0 40px ; box-sizing: border-box; border: 1px solid #fff;}
+.colorList li.selNot button {padding-left: 10px}
+.colorList li:not(.selfBox) .name { height: 54px; text-align: left; display: table-cell; vertical-align: middle; }
+.colorList li .state3:before { content: "재고 한정"; position: absolute; top: 0px; right: 0px; background: rgba(150, 150, 150, 0.7); color: #fff; border-radius: 10px; font-size: 13px; padding: 2px 6px; }
+.colorList li .price { position: absolute; bottom: 6px; right: 5px; background: rgba(255,255,255,0.7); padding: 2px 8px; border-radius: 15px; }
+.colorList li.on .price { color: #ed1652; font-weight: bold; }
+.colorList li .group { position: absolute; bottom: 5px; left: 30px; color: #999; font-size: 13px;}
+.colorList .colorChip { position: absolute; top: 0px; left: 0px; height: 100%; width: 30px; border: 1px solid #ccc; box-sizing: border-box; }
+.colorList .colorChip .colorMain { position:relative; display:inline-block; width:100%; height:100%; }
+.colorList .colorChip .colorSub { position:absolute; bottom: 0px; left: 0px; display:inline-block; width:100%; height:50%; }
+.colorList:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.colorList li button:hover { border: 1px solid #999999;  background: #e8e8e8; text-decoration: none; }
+.colorList li.dis button { border: 1px solid #ffffff;  background: #f3f3f3; }
+.colorList li.dis[dis='optionJoin'] button::after { content: '연계된 옵션 선택 필요' ; position: absolute; right: 2px; bottom: -2px; font-size: 12px; color: #395eb9;  }
+.colorList li.dis[dis='optionNot'] button::after { content: '선택된 옵션 조합 불가' ; position: absolute; right: 2px; bottom: -2px; font-size: 12px; color: #395eb9;  }
+.colorList li.dis[dis='intNot'] button::after { content: '선택된 내장 조합 불가' ; position: absolute; right: 2px; bottom: -2px; font-size: 12px; color: #395eb9;  }
+.colorList li.dis[dis='extNot'] button::after { content: '선택된 외장 조합 불가' ; position: absolute; right: 2px; bottom: -2px; font-size: 12px; color: #395eb9;  }
+.colorList li.on button { border: 1px solid #ed1652;  background: #fffff4; }
+.colorList li.on button:after {content: ""; position: absolute; top: 0; left: 0; width: 0; height: 0; border-right: 15px solid transparent; border-top: 15px solid #ed1652; }
+.colorList li.blank { background: #f4f4f4; padding: 10px; width: auto; float: none; text-align: center; font-size: 13px; color: #666;  }
+.colorList li.guide { font-size: 13px; color: #00aade;  }
+
+.colorList2 { }
+.colorList2 li { float: left; width: 15%; margin: 0.8%; }
+.colorList2 li .frame { position: relative; display: table; width: 100%; height: 40px; padding-top: 35px; box-sizing: border-box;}
+.colorList2 li .name { height: 40px; text-align: center; display: table-cell; vertical-align: middle;  overflow: hidden; text-overflow: ellipsis; line-height: 1.2; }
+.colorList2 li.state3 .frame:before { content: "재고 한정"; margin-left: 5px; background: rgba(0,0,0,0.3); color: #fff; border-radius: 10px; font-size: 13px; padding: 2px 6px; font-weight: normal; position: absolute; top:20px; right: 0;}
+.colorList2 li .name .group { color: #999; font-size: 13px; display: block; }
+.colorList2 li .price { position: absolute; bottom: 10px; right: 10px; }
+.colorList2 li.on .price { color: #ed1652; font-weight: bold; }
+.colorList2 .colorChip { position: absolute; top: 0px; left: 0px; width: 100%; height: 35px; border: 1px solid #bbb; box-sizing: border-box; }
+.colorList2 .colorChip .colorMain { position:relative; display:inline-block; width:100%; height:100%; }
+.colorList2 .colorChip .colorSub { position:absolute; bottom: 0px; right: 0px; display:inline-block; width:50%; height:100%; }
+.colorList2:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+
+@media screen and (max-width: 980px) {
+	.colorList2 li { float:left; width: 18%; margin: 1%; }
+}
+@media screen and (max-width: 830px) {
+	.colorList2 li { float:left; width: 22.6%; margin: 1.2%; }
+}
+@media screen and (max-width: 680px) {
+	.colorList2 li { float:left; width: 30.5%; margin: 1.4%; }
+}
+
+/* 옵션 */
+.optionList { margin-top: 5px; min-height: 100px; }
+.optionList li { margin-bottom: 5px; position: relative; }
+.optionList li:not(.parts) button { position: relative; background: #fff; width: 100%; padding: 8px 5px 8px 10px; border: 1px solid #fff; border-bottom: 1px solid #d2d2d2; text-align: left; }
+.optionList li.on button { border: 1px solid #ed1652; }
+.optionList li .name { min-width: 200px; }
+.optionList li .state3:before { content: "재고 한정"; background: rgba(150, 150, 150, 0.7); color: #fff; border-radius: 10px; font-size: 13px; padding: 2px 6px; margin-left: 5px; }
+.optionList li .info { clear: both; text-align: left;  font-size: 13px; color: #999; padding: 0 20px;}
+.optionList li .price { float: right; background: rgba(255,255,255,0.7); padding: 2px 8px; border-radius: 15px; }
+.optionList li.on .price { color: #ed1652; font-weight: bold; }
+.optionList li button:hover { border: 1px solid #999999; background: #e8e8e8; text-decoration: none; }
+.optionList li.on button { border: 1px solid #ed1652;  background: #fffff4; }
+.optionList li.on button:after {content: ""; position: absolute; top: 0; left: 0; width: 0; height: 0; border-right: 15px solid transparent; border-top: 15px solid #ed1652; }
+.optionList li.dis button { border: 1px solid #fff;  background: #f3f3f3; }
+.optionList li.dis[dis='sub'] button::after { content: '연계된 옵션 선택 필요' ; position: absolute; right: 2px; bottom: 0px; font-size: 12px; color: #395eb9;  }
+.optionList li.dis[dis='anti'] button::after { content: '선택된 옵션 조합 불가' ; position: absolute; right: 2px; bottom: 0px; font-size: 12px; color: #395eb9;  }
+.optionList li.dis[dis='intNot'] button::after { content: '선택된 내장 조합 불가' ; position: absolute; right: 2px; bottom: 0px; font-size: 12px; color: #395eb9;  }
+.optionList li.dis[dis='extNot'] button::after { content: '선택된 외장 조합 불가' ; position: absolute; right: 2px; bottom: 0px; font-size: 12px; color: #395eb9;  }
+.optionList li.blank { padding: 10px; text-align: center; font-size: 13px; color: #666; }
+.optionList li button a.help { display: inline-block; width: 25px; height: 25px; background: #f4f4f4; border: 1px solid #ccc; border-radius: 20px; text-align: center; line-height:20px; font-weight: bold; padding: 0;}
+.optionList li button a.help:hover { text-decoration: none; border: 1px solid #666; background: #ccc; }
+
+/* 할인조건 */
+.discountList { margin-top: 5px;}
+.discountList > li:not(.selfBox) { margin-bottom: 5px; padding-bottom: 3px; background: #fff; border: 1px solid #fff; position: relative; }
+.discountList > li.on { border: 1px solid #ed1652; background: #fffff4; }
+.discountList > li.on:after {content: ""; position: absolute; top: 0; left: 0; width: 0; height: 0; border-right: 15px solid transparent; border-top: 15px solid #ed1652; }
+.discountList button { display: inline-block; position: relative; padding: 3px 14px 3px 10px; background: transparent; text-align: right; }
+.discountList button:hover { background: #e8e8e8; }
+.discountList li .name { font-weight: bold; color: #666; padding: 5px 10px 3px 10px; }
+.discountList .require {margin-left: 22px; text-align: left; line-height: 26px; }
+.discountList .price { float: right; padding: 2px 0; margin-right: 13px;}
+.discountList .info { font-size: 13px; color: #999; padding: 0 20px 8px 20px;}
+.discountList li li.on .price, .discountList li li.on input[name='discountP'] { color: #ed1652; font-weight: bold; }
+
+.discountList li > button:before { content: ""; position: absolute; left: 12px; top: 10px; width: 12px; height: 12px; border: 1px solid #ccc; background: #fff; border-radius: 10px; }
+.discountList li.on > button:before { background: #ed1652; border: 1px solid #ed1652; }
+.discountList ul li button:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.discountList li.blank { padding: 10px; text-align: center; font-size: 13px; color: #666; border: 0; }
+.discountList li.notice { padding: 10px; text-align: left; font-size: 13px; color: #00aade; }
+.discountList li .check { position: absolute; top: 0; right: 0;}
+
+/* 금융 상품 */
+.financeList { }
+.financeList > li {  margin-top: 10px;  position: relative; background: #fff; box-shadow: 3px 3px 5px #ddd; box-sizing: border-box; border: 1px solid #fff;}
+.financeList > li:first-child { margin-top: 0; }
+.financeList > li > .bar { padding-right: 100px;}
+.financeList > li > .bar input[type='text']{ width: 50%; }
+.financeList > li > .bar > span { line-height: 38px; padding-left: 10px;}
+.financeList > li > .bar button.name { line-height: 32px; padding-left: 10px; width: 100%; background: transparent;   text-align: left;}
+.financeList > li > .bar button.apply { position: absolute; top: 6px; right: 45px; background: #ccc; padding: 3px 10px; color: #fff; border-radius: 20px; border: 0;  }
+.financeList > li > .bar button.apply:hover { background: #433e3c; }
+.financeList > li.on { border: 1px solid #ed1652;  background: #fffff4; }
+.financeList > li.on:after {content: ""; position: absolute; top: 0; left: 0; width: 0; height: 0; border-right: 15px solid transparent; border-top: 15px solid #ed1652; }
+.financeList > li > .bar.open { background: #f6f6f6; border-bottom: 1px solid #ccc; }
+.financeList > li > .bar:hover { background: #f6f6f6; }
+.financeList > li.on > .bar span { font-weight: bold;  }
+.financeList > li.state2 button span:after { content: "H"; background: #ed1652; color: #fff; border-radius: 10px; display: inline-block; width: 16px; height: 16px; line-height: 16px; font-size: 11px; text-align: center; margin-left: 5px; }
+/* .financeList > li.on:not(.self) > .bar button.apply { display: none;} */
+.financeList .scroll { display: none;  }
+.financeList .promotion { padding: 5px 10px; margin-top: 20px; }
+.financeList .promotion table { margin-top: 5px; }
+
+.financeList > li.comp { background: #6b5f5b; padding: 8px 15px; border: 1px solid #6b5f5b; border-radius: 20px 20px 0 0; color: #fff; text-align: center; }
+.financeList > li.comp > span { display: inline-block; margin: 0 5px; }
+.financeList > li.comp:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;}
+.financeList .compData { text-align: right; position: relative;}
+.financeList .compData span { display: inline-block; font-size: 13px; padding-left: 10px;}
+.financeList .compData span.back {color: #ed1652; }
+.financeList .compData span.pmt { width: 70px; text-align: right; color: #ed1652; }
+.financeList .compData span.gap { position: absolute; top: 1px; right: -90px; width: 80px; text-align: left; color: #1bb6dd; }
+.financeList .compData span.error {color: #ed1652; }
+
+.tabBox.comp ul { text-align: left; padding-left: 20px; }
+.tabBox.comp > button { position: absolute; top: 0; right: 0;  background: #ccc; padding: 3px 10px; color: #fff; border-radius: 20px; border: 0;  }
+.tabBox.comp > button:hover { background: #433e3c; }
+.tabBox.comp > button.on { background: #ed1652; }
+
+
+.financeList .bar button.updown { position: absolute; top: 0px; right: 0px;  width: 38px; height: 38px; font-size:0px; line-height:0; text-indent:-9999px;  background: url(/images/icon.png) -405px -7px no-repeat; background-size: 650px 300px; z-index: 10; }
+.financeList .bar button.updown:hover { background: url(/images/icon.png) -405px -57px no-repeat; background-size: 650px 300px;}
+.financeList .bar.open button.updown { position: absolute; top: 0px; right: 0px;  width: 38px; height: 38px; font-size:0px; line-height:0; text-indent:-9999px;  background: url(/images/icon.png) -355px -7px no-repeat; background-size: 650px 300px;}
+.financeList .bar.open button.updown:hover { background: url(/images/icon.png) -355px -7px no-repeat; background-size: 650px 300px;}
+.financeView { padding: 5px 10px; }
+.financeView li { padding: 3px 0; position: relative; }
+.financeView li .title { font-weight: bold; padding-right: 5px; }
+.financeView li input.rateL { width: 60px; text-align: center; }
+.financeView li input.cnt { width: 20px; text-align: center; }
+.financeView li .dataR { float: right; color: #ed1652; font-weight: bold; }
+.financeView li table { margin-top: 5px; }
+
+
+.estmUnit . .selfBox { margin: 0; }
+.estmUnit .finceSub { padding-bottom: 20px; }
+.finceSub .info { background: #f6f6f6; padding: 8px 10px;}
+.finceSub .info table { background: #fff; margin-top: 5px;}
+.finceSub .info .name { font-weight: bold; color: #666; padding-right: 10px;}
+.finceSub .info:after  {content: ""; display: block; height: 0; clear: both; visibility: hidden;} 
+.finceSub .info input[type='button'] { float: right; background: #433e3c; padding: 3px 10px; color: #aaaaaa; border-radius: 20px; border: 0;  }
+.finceSub .info input[type='button']:hover { color: #fff; }
+.finceSub .select { padding: 8px 10px; background: #f6f6f6; }
+.finceSub .select .name { font-weight: bold; color: #666; padding-left: 10px; }
+.finceSub .select .name:first-child { padding-left: 0; }
+.finceSub .select .right { float: right;  }
+.finceSub .select:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.finceSub em { font-weight: bold; color: #ed1652; font-style: normal; }
+.finceSub ul { padding: 5px;}
+.finceSub ul:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.finceSub li {float: left; width: 23%; margin: 1%; }
+.finceSub .addDesc { text-align: center; padding: 5px; border: 5px solid #e0e0e0;}
+.finceSub .addDesc .desc { display: inline-block; font-size: 12px;    color: #666; }
+.finceSub .addList li {float: none; width: auto; margin: 0; padding: 3px; border: 0;}
+.finceSub .addList li .desc { font-size: 12px; color: #666; margin-left: -5px; }
+.finceSub li.fifth {float: left; width: 18%; }
+.finceSub li.triple {float: left; width: 31.3%; }
+.finceSub li.half {float: left; width: 48%; }
+.finceSub li.both {float: left; width: 98%; }
+
+.estmUnit .commonSub { padding-bottom: 20px; }
+.estmUnit .databar .commonSub { padding-bottom:5px; }
+.commonSub .info { background: #f6f6f6; padding: 8px 10px;}
+.commonSub .info .name { font-weight: bold; color: #666; padding-right: 10px;}
+.commonSub .info .select { float: right; }
+.commonSub .info:after  {content: ""; display: block; height: 0; clear: both; visibility: hidden;}
+.commonSub .check { margin: 8px 10px;}
+.commonSub .check .price { float: right; }
+
+.commonSub .check input.fee { width: 20%; text-align: center; }
+.commonSub .notice { margin: 8px 10px; color: #ed1652; }
+
+.commonSub li {float: left; width: 23%; margin: 1%; }
+.commonSub li.triple {float: left; width: 31.3%; }
+.commonSub li.half {float: left; width: 48%; }
+.commonSub li.both {float: left; width: 98%; }
+.commonSub ul:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+
+/* 리스렌트 비교 */
+.compareList { border-top: 3px solid #ed1652; }
+.compareList li { border-bottom: 1px solid #ccc; position: relative; }
+.compareList li.on { border: 1px solid #ef6500; margin-top: -1px;  background: #fffff4; }
+.compareList li.on:after {content: ""; position: absolute; top: 0; left: 0; width: 0; height: 0; border-right: 15px solid transparent; border-top: 15px solid #ed1652; }
+.compareList li button { display: block; width: 100%; padding: 50px 10px 10px 10px; position: relative; background: transparent;  }
+.compareList li.reference button:before {content: "참고용"; position: absolute; display: block; width: 100px; height: 50px; font-size: 20px; font-weight: bold;  line-height: 50px; color:#00aade; text-align: center; top:0; left: 50%; margin-left: -35px;} 
+.compareList li.limited button:before {content: "한정특가"; position: absolute; display: block; width: 100px; height: 50px; font-size: 20px; font-weight: bold;  line-height: 50px; color:#E107CB; text-align: center; top:0; left: 50%; margin-left: -35px;} 
+.compareList li button:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;} 
+.compareList li .frame { display: block; width: auto; padding: 50px 10px 10px 80px; position: relative; }
+.compareList li button:hover { text-decoration: none; background: #e8e8e8; }
+.compareList li button > span { margin: 0 3px; display: inline-block;}
+.compareList li .logo { position: absolute; top: 8px; left: 10px; }
+.compareList li .logo img{ width: 130px; }
+.compareList li .price { position: absolute; top: 15px; right: 10px;   display: inline-block; font-weight: bold; font-size: 22px; color: #333; line-height: 1.2; }
+.compareList li.best .price {color: #ed1652; }
+.compareList li .price .unit { display: none; position: absolute; bottom: 0; right: 0; font-size: 14px;}
+.compareList li .paysum .unit {display: none; }
+.compareList li .name { font-weight: bold; }
+.compareList li .gap { position: absolute; top: 1px; right: 10px;  color: #ed1652; font-size: 13px; line-height: 16px;}
+.compareList li .error { position: absolute; top: 13px; left: 170px; display: inline-block; font-weight: bold; font-size: 16px; color: #999; }
+.compareList li .exception { position: absolute; top: 35px; left: 0; width: 100%; text-align: center;  color: #00aade; font-size: 12px;  }
+
+.compareList li .rank {display: none; }
+.compareList li .mainIndex {display: none; }
+.compareList li .name { margin-right: 10px; }
+.compareList li .rate.subIndex { margin-right: 10px; }
+.compareList li .info.subIndex { display: inline-block; float: right; color: #666; }
+.compareList li.blank { padding: 100px 10px; text-align: center; font-size: 13px; color: #666; border: 0; }
+.compareList li.none { padding: 20px 10px; background: #f6f6f6;}
+.compareList li.none .title { font-weight: bold; color:#ed1652; margin-bottom: 10px; }
+
+.compareList li.failure { min-height: 81px; background: #f6f6f6; }
+.compareList li.failure .name { position: absolute; top: 50px; left: 50px; }
+.compareList li.failure .memo { position: absolute; bottom: 10px; right: 10px; color: #ed1652; font-weight: bold;  }
+
+.compareList.cardBox { height: 300px; overflow-y: auto;}
+
+/* 견적 기타 */
+.estmUnit .selfBox { border: 5px solid #e0e0e0; padding: 5px 10px; background: #fff; position: relative; }
+.estmUnit .selfBox div:not(:first-child) { margin-top: 5px; }
+.estmUnit .selfBox div span.name { font-weight: bold; margin-right: 5px; }
+.estmUnit .selfBox input[name='name'] { width: 70%;}
+.estmUnit .selfBox input[name='price'], .estmUnit .selfBox input.capital { width: 40%; text-align: right; }
+.estmUnit .selfBox input.month { width: 30%; text-align: center; }
+.estmUnit .selfBox input[type='button'] { position: absolute; bottom: 5px; right: 5px; background: #24646e; padding: 3px 10px; color: #fff; border-radius: 2px; border: 0;  }
+.estmUnit .selfBox input[type='button']:hover { color: #fff; }
+.estmUnit .selfBox button.cancel {position: absolute; top: 5px; right: 58px; }
+.estmUnit .selfBox:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;}
+.estmUnit .btnDelSelf {position: absolute; top: 1px; right: 1px; width: 25px; height: 25px; cursor: pointer; font-size:0px; line-height:0; text-indent:-9999px; background: url(/images/icon.png) -263px -13px no-repeat; background-size: 650px 300px; }
+.estmUnit .btnDelSelf:hover { background: #f6f6f6 url(/images/icon.png) -263px -63px no-repeat; background-size: 650px 300px; }
+.estmUnit .btnDelFashship {position: absolute; top: 1px; left: 1px; width: 25px; height: 25px; cursor: pointer; font-size:0px; line-height:0; text-indent:-9999px; background: url(/images/icon.png) -263px -13px no-repeat; background-size: 650px 300px; }
+.estmUnit .btnDelFashship:hover { background: #f6f6f6 url(/images/icon.png) -263px -63px no-repeat; background-size: 650px 300px; }
+.estmUnit .selNot button {padding: 5px; text-align: center; color: #666; }
+
+.estmUnit .taxfreeSelf { text-align: right; padding: 5px 10px 4px 10px; border-top: 1px solid #d2d2d2; }
+.estmUnit .taxfreeSelf .name { float: left; line-height: 27px}
+.estmUnit .taxfreeSelf input[name='taxfreeSelf'] { width: 50%; text-align: right; }
+
+.estmUnit .transSelf { text-align: right; padding: 5px 10px 4px 10px;  }
+.estmUnit .transSelf input[name='transName'] { width: 50%; float: left; }
+.estmUnit .transSelf input[name='transSelf'] { width: 30%; text-align: right; }
+.estmUnit .transSelf button.cancel {position: absolute; top: -34px; right: -1px; }
+.estmUnit .transSelf:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.estmUnit .sidoList { padding: 5px;}
+.estmUnit .sidoList li {float: left; width: 31.3%; margin: 0 1%; }
+.estmUnit .sidoList:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.estmUnit .sigunguList { padding: 5px;}
+.estmUnit .sigunguList li {float: left; width: 48%; margin: 0 1%; }
+.estmUnit .sigunguList:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.estmUnit .siteList { padding: 5px; }
+.estmUnit .siteList li:not(.guide) {float: left; width: 48%; margin: 0 1%; }
+.estmUnit .siteList:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.estmUnit .selsub > .list li button .price { position: absolute; top: 7px; right: -5px;  background: rgba(255,255,255,0.7); padding: 2px 8px; border-radius: 15px;}
+.estmUnit .siteList li.guide { text-align: center;     padding: 5px;    border: 5px solid #e0e0e0; }
+.estmUnit .siteList li.guide em {  font-style: normal; color: #ed1652; font-weight: bold; }
+.estmUnit .ymList { padding: 5px; }
+.estmUnit .ymList li:not(.guide) {float: left; width: 23%; margin: 0 1%; }
+.estmUnit .ymList:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+
+
+.estmCell .trimList { padding: 5px; }
+.estmCell .trimList li { margin: 2% 1.3%; }
+
+.trimList li .frame, .trimList li a, .trimList li button { position: relative; background: #fff; box-shadow: 3px 3px 5px #ddd; display: table; width: 100%; padding: 0 10px 30px 10px; box-sizing: border-box; border: 1px solid #fff;}
+
+
+
+/* 채권 시세 */
+.bondCutBox .index { background: #f6f6f6; border-top: 1px solid #a9a9a9; border-bottom: 1px solid #d2d2d2; }
+.bondCutBox span {width: 33.3%; text-align: center; display: inline-block; padding: 8px 0;}
+.bondCutBox ul li {border-bottom: 1px solid #d2d2d2; }
+.bondCutBox button { background: #fff; display: block; width: 100%;  }
+.bondCutBox button:hover { background: #e8e8e8; display: block; width: 100%;  }
+.bondCutBox .desc { color: #666; padding: 10px; }
+
+/* 즉시출고 */
+.fastshipBox { margin-bottom: 30px; }
+
+.fastshipBox .brandShip { margin-bottom: 20px; position: relative; }
+.fastshipBox .brandShip ul { margin: 0; padding-bottom: 5px; border-bottom: 1px solid #ccc; }
+.fastshipBox .brandShip .brandList li {width: 76px; margin: 3px; float: left; }
+
+.fastshipBox .brandShip .brandList li button {    box-shadow: 3px 3px 5px #ddd;}
+
+.fastshipBox .modelList li {float: left;  width: 23%; margin: 1%; }
+.fastshipBox .modelList li a .cnt { margin-left: 3px; color: #ed1652;}
+
+.fastshipBox .brandShip .brandBar { display: none; }
+.mobileSize .fastshipBox .brandShip .brandBar { display: block; }
+
+.fastshipBox .brandShip .brandBar { position: relative; }
+.fastshipBox .brandShip .brandBar > button {position: relative; width: 100%;  height: 46px; padding: 0 33px 0 70px; border: 1px solid #d2d2d2; background: #fff; text-align: left; }
+.fastshipBox .brandShip .brandBar > button:hover { background: #e8e8e8 }
+.fastshipBox .brandShip .brandBar > button .bar {display: block; }
+.fastshipBox .brandShip .brandBar > button .title { position: absolute; top: 50%; left: 0; margin-top: -10px;  font-size: 13px; font-weight: bold; color: #666; width: 60px; text-align: center; }
+.fastshipBox .brandShip .brandBar > button:after {content: ""; position: absolute; top: 50%; right: 8px; width: 14px; height: 14px; margin-top: -8px; background: url(/images/icon.png) -418px -17px no-repeat; background-size: 650px 300px;}
+.fastshipBox .brandShip .brandBar > button:hover:after { background: url(/images/icon.png) -418px -67px no-repeat; background-size: 650px 300px; }
+.fastshipBox .brandShip .brandBar.open > button:after { background: url(/images/icon.png) -368px -17px no-repeat; background-size: 650px 300px;}
+.fastshipBox .brandShip .brandBar.open > button:hover:after { background: url(/images/icon.png) -368px -67px no-repeat; background-size: 650px 300px; }
+.fastshipBox .brandShip .brandBar .bar { padding-left: 50px; display: block;}
+.fastshipBox .brandShip .brandBar .bar img { width: 60px; position: absolute; top: 4px; left: 60px; }
+.fastshipBox .brandShip .brandBar .bar .blank {margin-left: -50px; }
+
+
+.mobileSize .fastshipBox .brandList { display: none; position: absolute; top: 50px; left:0; background: #fff;  z-index: 10; border-bottom: 2px solid #24646e; }
+
+
+
+.fastshipList  { border-top: 1px solid #ccc; }
+.fastshipList  > li {border-bottom: 1px solid #ccc;}
+.fastshipList  > li.send { background: #f4f4f4; position: relative; }
+.fastshipList  > li.send:after { content: "전송 완료"; position: absolute; width: 100px; background: #ed1652; color: #fff; font-size: 20px; text-align: center; top: 50px; left: 50%; margin-left: -50px; }
+.fastshipList .box { position: relative; padding: 10px 0;}
+.fastshipList .box button { position: absolute; top: 5px; left: 0; }
+.fastshipList .box .kind { float: left; width: 15%;  text-align: center; margin-right: 2%; }
+.fastshipList:not(.estm) .box .kind { background: #24646e; border-radius: 20px; color: #fff; }
+ 
+.fastshipList .box .detail { float: left; width: 60%}
+.fastshipList .box .cost { float: right; width: 20%}
+.fastshipList .box > .sales { display: none; }
+.fastshipList .box .kind > span { padding: 5px 0; display: inline-block; }
+.fastshipList .box .detail div { padding-left: 50px; position: relative; margin: 5px 0;  }
+.fastshipList .box .detail .model:before { content: "모델"; position:absolute; top: 0; left: 0; }
+.fastshipList .box .detail .color:before { content: "색상"; position:absolute; top: 0; left: 0; }
+.fastshipList .box .detail .option:before { content: "옵션"; position:absolute; top: 0; left: 0; }
+.fastshipList .box .detail .option > span { display: block; }
+.fastshipList .box:after {content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.fastshipList .box .cost div { text-align: right; padding-left: 65px; position: relative; color: #24646e; }
+.fastshipList .box .cost .sales { font-weight: bold; }
+.fastshipList .box .cost .choice:before { content: "차량가격"; position:absolute; top: 0; left: 0; }
+.fastshipList .box .cost .free:before { content: "면세가격"; position:absolute; top: 0; left: 0; }
+.fastshipList .box .cost .discount:before { content: "할인금액"; position:absolute; top: 0; left: 0; }
+.fastshipList .box .cost .delivery:before { content: "탁송료"; position:absolute; top: 0; left: 0; }
+.fastshipList .box .cost .sales:before { content: "출고가격"; position:absolute; top: 0; left: 0; }
+.fastshipList .box .cost div.discount { color: #ed1652; }
+.fastshipList .contract {padding-left: 70px; padding-top: 5px; position: relative; min-height: 32px; }
+.fastshipList:not(.estm) .contract { height: 32px; overflow: hidden; }
+.fastshipList .contract.open { height: auto; }
+.fastshipList .contract:before { content:"계약번호"; position:absolute; top: 8px; left: 0; }
+.fastshipList .contract.vin:before { content:"차대번호"; position:absolute; top: 8px; left: 0; }
+.fastshipList .contract input[name='num']{ width: 130px; }
+.fastshipList .contract input[name='car']{ width: 160px; }
+.fastshipList .contract > li { counter-increment: li;  margin: 10px 0;  position: relative; list-style: decimal; float: left; margin: 3px 20px; }
+.fastshipList .contract > li.btn { list-style: none; }
+.fastshipList .contract > li.btn button { }
+.fastshipList .contract > button {  display: inline-block;  padding: 3px 8px; margin: 0 3px 7px 3px; background: #e0e0e0; border-radius: 20px; font-size: 13px; }
+.fastshipList .contract > button:hover {background: #aaaaaa; color: #fff; text-decoration: none; }
+.fastshipList .contract > a {  display: inline-block; position: absolute; top: 0; right: 0; width: 30px; height: 30px; background: url(/images/icon.png) -410px -10px no-repeat; background-size: 650px 300px;  line-height:0; text-indent:-9999px;}
+.fastshipList .contract.open > a {  background: url(/images/icon.png) -360px -10px no-repeat; background-size: 650px 300px; }
+
+.fastshipList  > li.blank {padding: 50px 0; }
+
+.fastshipList .contract:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;}
+
+@media screen and (max-width: 840px) {
+	.fastshipBox .modelList li {float: left;  width: 31.3%; margin: 1%; }
+	.fastshipList .box { padding-top: 45px; }
+	.fastshipList .box .kind { position: absolute; top: 10px; left: 0; width: 120px; padding: 0; }
+	.fastshipList .box .detail { float: none; width: auto; padding-right: 160px; }
+	.fastshipList .box .cost { float: none; width: 150px; position: absolute; top: 45px; right: 0; }
+	.fastshipList.estm .box .kind { width: auto; left: 30px; top: 5px }
+}
+@media screen and (max-width: 640px) {
+	.fastshipBox .modelList li {float: left;  width: 48%; margin: 1%; }
+	.fastshipList .box .detail { padding-right: 0; }
+	.fastshipList .box .cost { float: none; width: auto; position: relative; top: 0; right: 0; margin-top: 10px; text-align: right; }
+	.fastshipList .box .cost div { display: inline-block; margin: 0 0 0 20px; }
+	.fastshipList .box .cost .sales { display: none; }
+	.fastshipList .box > .sales { display: block; position: absolute; top: 10px; right: 0;  font-weight: bold; color: #24646e; }
+	.fastshipList .box > .sales span { color: #24646e; }
+	.fastshipList .box > .sales:before { content: "출고가격"; position:absolute; top: 0; left: -70px; }
+
+	.mobileSize .fastshipList:not(.estm) .box .detail { text-align: right; }
+	.mobileSize .fastshipList:not(.estm) .box .cost > div { padding: 0; }
+	.mobileSize .fastshipList:not(.estm) .box .cost > div:before { display: none; }
+	.mobileSize .fastshipList:not(.estm) .box .cost > div.choice:after { content: "/"; position: absolute; top: 0; right: -15px;  }
+	.mobileSize .fastshipList:not(.estm) .box .cost:before { content: "차량/할인금액"; position: absolute; top: 0; left: 0; }
+	
+	.mobileSize .fastshipList.estm .contract {padding-left: 0; padding-top: 40px; }
+}
+@media screen and (max-width: 350px) {
+	.fastshipBox .modelList li {float: left;  width: 98%; margin: 1%; }
+}
+
+/* 제원/정보 */
+.infoPopup h3 {font-size: 17px; text-align: center; border-bottom: 2px solid #5a5a5a; padding-top: 10px; padding-bottom: 10px; }
+.infoPopup h3 em { font-style: normal; color: #00aade; }
+.infoPopup h4 {font-size: 17px; text-align: center; border-bottom: 1px solid #5a5a5a; margin-top: 30px; padding-bottom: 5px;}
+.infoPopup h3 em { font-style: normal; color: #00aade; }
+
+.infoPopup .button { text-align: center; margin-top: 10px;}
+.infoPopup .button.top { text-align: right; margin-bottom: -20px;}
+.infoPopup .button a, .infoPopup .button button{ padding: 3px 5px; color: #fff; background: #999999; display: inline-block; margin-left: 4px;}
+.infoPopup .button a.estimate { background: #00aade; }
+.infoPopup .button a:hover, .infoPopup .button button:hover{ background: #666666; text-decoration: none;  }
+
+.infoPopup .spec .left { float: left; width: 48.5%;}
+.infoPopup .spec .right { float: right; width: 48.5%;}
+.infoPopup .spec:after {content: ""; display: block; height: 0; clear: both; visibility: hidden;}
+.infoPopup .spec .name { text-align: center; padding: 5px 0; font-weight: bold; margin-top: 20px; background: #666666; color: #fff;  }
+.infoPopup .spec dl { position: relative; box-shadow: 3px 3px 5px #ddd;}
+.infoPopup .spec dl:before { content: ""; position: absolute; top: 0; left: 0; width: 140px; height: 100%; background: #f5f5f5; z-index: 1; }
+.infoPopup .spec dt { padding: 5px 0; position: relative; z-index: 10; width: 140px; text-align: center; }
+.infoPopup .spec dd { text-align: right; margin-top: -30px; border-bottom: 1px solid #ccc; padding: 5px 10px; position: relative; z-index: 10; }
+
+.infoPopup .items li { margin-top: 20px; box-shadow: 3px 3px 5px #ddd; }
+.infoPopup .items .name { text-align: center; padding: 5px 0; font-weight: bold; margin-top: 20px; background: #666666; color: #fff;  }
+.infoPopup .items dl { padding: 5px 10px; }
+.infoPopup .items dt { margin-top: 5px; }
+.infoPopup .items dt:before { content: "• "; }
+.infoPopup .items dd { margin-left: 50px; }
+.infoPopup .items .through { color: #666;  text-decoration: line-through;}
+.infoPopup .items .link { color: #00aade; padding: 5px 10px; }
+.infoPopup textarea { width: 100%; height: 100px; margin-top: 10px; }
+@media screen and (max-width: 720px) {
+	.infoPopup .spec .left { float: none; width: auto;}
+	.infoPopup .spec .right { float: none; width: auto;}
+}
+
+
+

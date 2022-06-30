@@ -1,0 +1,19 @@
+.buttonBox button, .buttonBox a { background: #00aaaa;}
+
+.wrapper.login {background: #00aaaa;}
+.loginBox h1 .logo { width: 160px; height: 35px; background: url(/images/logo-hana-01.png) -0px -85px no-repeat; background-size: 150px 250px;}
+
+.header { background: #00aaaa;}
+
+.header h1 .logo { width: 160px; height: 40px; background: url(/images/logo-hana-01.png) -10px -75px no-repeat; background-size: 150px 250px;}
+@media screen and (max-width: 1000px) {
+	.header h1 .logo { width: 160px; height: 40px; background: url(/images/logo-hana-01.png) -10px -75px no-repeat; background-size: 150px 250px;}
+}
+@media screen and (max-width: 640px) {
+	.header h1 .logo { width: 60px; height: 40px; background: url(/images/logo-hana-01.png) -10px -185px no-repeat; background-size: 150px 250px;}
+}
+
+.deskBox .memu li a { border: 2px solid #00aaaa; border-radius: 15px; }
+.deskBox .memu li.hot a { background: #00aaaa; color: #fff; }
+.deskBox .memu li a:hover { background: #f4f4f4; text-decoration: none; color: #00aaaa; }
+.deskBox .memu li.hot a:hover { color: #00aaaa; }
