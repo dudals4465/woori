@@ -12,7 +12,7 @@ define('URL', 'http://woorift.aictin.com/');      // 금융사별 설정
 define('DOMAIN', 'aictin.com');     // 금융사별 설정
 /* DB 관련 환경설정 */
 define('DB_TYPE', 'mysql');
-define('DB_HOST', 'localhost');
+define('DB_HOST', '183.111.234.181');
 define('DB_NAME', 'test');
 define('DB_USER', 'aict');
 define('DB_PASS', 'aict@1436.com');
