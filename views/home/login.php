@@ -1,6 +1,6 @@
 <h2 class="">AG 등록회원 로그인22</h2>
 <div class="information">
-	우리금융캐피탈 AG 회원 전용 온라인 견적입니다.<br>
+	우리금융캐피탈 AG 회원 전용 온라인 견적입니다...<br>
 	처음 방문하신 AG 회원님은 등록하시고 승인된 후 이용하실 수 있습니다.
 </div>
 <?php 
@@ -70,9 +70,7 @@ else $id = "";
 </div>
 
 <script>
-$(window).load(function(){
 
-});
 $(document).on("click", "#formLogin button", function () {
 	if($('#formLogin [name="id"]').val().length<6){
 		alert("등록된 ID를 정확히 입력해주세요.");
