@@ -70,6 +70,9 @@ else $id = "";
 </div>
 
 <script>
+$(window).load(function(){
+
+});
 $(document).on("click", "#formLogin button", function () {
 	if($('#formLogin [name="id"]').val().length<6){
 		alert("등록된 ID를 정확히 입력해주세요.");
