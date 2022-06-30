@@ -1,12 +1,4 @@
-<style>
-.form dd input[type="text"]:not([name="phone"]) { width: 100%; }
-.form dd .phone { display: flex; }
-.form dd .phone select { width: 30%; margin-bottom: 0; }
-.form dd .phone input { width: 70%; }
-.agreeBox { margin-bottom: 20px; }
-.agreeBox a { float: right; border: 0; }
 
-</style>
 <div class="stateBox">
 	<span>
     <?php if($_SESSION['certifyKind'] == "join"){
@@ -20,7 +12,7 @@
 	</span>
 	<div class="stepBox">
 		<b>진행 상황</b>
-		<span class="step on">1</span>
+		<span class="step on">1</span><span class="txt">인증번호 요청</span>
 		<span class="step">2</span>
 		<span class="step">3</span>
 	</div>

@@ -1,7 +1,3 @@
-<style>
-    .form #formApply dd { position: relative; }
-    .form #formApply dd.checked::after {content: "중복확인 완료"; position: absolute; top: 0; right: 0; color: red; }
-</style>
 <div class="stateBox">
 	<span>
     <?php if($_SESSION['certifyKind'] == "join"){
@@ -17,7 +13,7 @@
 		<b>진행 상황</b>
 		<span class="step">1</span>
 		<span class="step">2</span>
-		<span class="step on">3</span>
+		<span class="step on">3</span><span class="txt">회원가입</span>
 	</div>
 </div>
 <div class="form">
