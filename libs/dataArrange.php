@@ -246,22 +246,7 @@ function toPkcs7 ($value)
         $padSize = 16 - (strlen ($value) % 16) ;
         return $value . str_repeat (chr ($padSize), $padSize) ;
 }
-function fromPkcs7 ($value)
-{
-    $valueLen = strlen ($value) ;
-    if ( $valueLen % 16 > 0 )
-        $value = "";
-        $padSize = ord ($value{$valueLen - 1}) ;
-        if ( ($padSize < 1) or ($padSize > 16) )
-            $value = "";
-            // Check padding.
-            for ($i = 0; $i < $padSize; $i++)
-            {
-                if ( ord ($value{$valueLen - $i - 1}) != $padSize )
-                    $value = "";
-            }
-            return substr ($value, 0, $valueLen - $padSize) ;
-}
+
 function encrypt ($key, $iv, $value)
 {
     if ( is_null ($value) )
